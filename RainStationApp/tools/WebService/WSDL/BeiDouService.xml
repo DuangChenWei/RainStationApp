@@ -1,0 +1,2833 @@
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://tempuri.org/">
+    <wsdl:types>
+        <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+            <s:element name="Get_LoginOKOrNo">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="loginName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="loginPwd" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="IMEI" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_LoginOKOrNoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_LoginOKOrNoResult" type="tns:LOGINUSER"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="LOGINUSER">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="RETURNNUM" type="s:int"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="NAME" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="SEX" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="GROUPNAME" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="TELNUMBER" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="HaveIMG" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="IsAuthorizedLogin" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Power" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="PERID" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="CARNUM" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="PERIMG" type="s:base64Binary"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Insert_LoginUser">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="loginName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="loginPwd" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="NAME" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="SEX" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="IMEI" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="ShenFenZhengID" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="PhoneNum" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="GROUPNAME" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="PERIMG" type="s:base64Binary"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Insert_LoginUserResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="Insert_LoginUserResult" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_LoginUserInfo">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="loginName" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_LoginUserInfoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_LoginUserInfoResult" type="tns:LOGINUSER"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_LoginUserNameInfo_List">
+                <s:complexType/>
+            </s:element>
+            <s:element name="Get_LoginUserNameInfo_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_LoginUserNameInfo_ListResult" type="tns:ArrayOfLOGINUSER"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfLOGINUSER">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="LOGINUSER" nillable="true" type="tns:LOGINUSER"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Update_UserAndPerson">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="loginPerID" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="PERID" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="NAME" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="SEX" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="PhoneNum" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="GROUPNAME" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="power" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="carnum" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="ISAUTHORIZEDLOGIN" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Update_UserAndPersonResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="Update_UserAndPersonResult" type="s:boolean"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_LoginUserInfo_List">
+                <s:complexType/>
+            </s:element>
+            <s:element name="Get_LoginUserInfo_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_LoginUserInfo_ListResult" type="tns:ArrayOfLOGINUSER"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_CheckLoginUserInfo_List">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="groupName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_CheckLoginUserInfo_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_CheckLoginUserInfo_ListResult" type="tns:ArrayOfLOGINUSER"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="HelloWorld">
+                <s:complexType/>
+            </s:element>
+            <s:element name="HelloWorldResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_Num_List">
+                <s:complexType/>
+            </s:element>
+            <s:element name="Get_Num_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_Num_ListResult" type="tns:ArrayOfNUMLIST"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfNUMLIST">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="NUMLIST" nillable="true" type="tns:NUMLIST"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="NUMLIST">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="NUM" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Get_NewNum_List">
+                <s:complexType/>
+            </s:element>
+            <s:element name="Get_NewNum_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_NewNum_ListResult" type="tns:ArrayOfNUMLIST"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_CarOilBox_List">
+                <s:complexType/>
+            </s:element>
+            <s:element name="Get_CarOilBox_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_CarOilBox_ListResult" type="tns:ArrayOfCARTYPELIST"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfCARTYPELIST">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="CARTYPELIST" nillable="true" type="tns:CARTYPELIST"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="CARTYPELIST">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="CARTYPE" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Get_CarNum_List">
+                <s:complexType/>
+            </s:element>
+            <s:element name="Get_CarNum_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_CarNum_ListResult" type="tns:ArrayOfCARLIST"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfCARLIST">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="CARLIST" nillable="true" type="tns:CARLIST"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="CARLIST">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="NUM" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="CARNUM" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="CARTYPE" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="PERID" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="NAME" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="TELNUMBER" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="ONLINE" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="CARIMG" type="s:base64Binary"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Get_CarNoPic_List">
+                <s:complexType/>
+            </s:element>
+            <s:element name="Get_CarNoPic_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_CarNoPic_ListResult" type="tns:ArrayOfCARLIST"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_Car_List">
+                <s:complexType/>
+            </s:element>
+            <s:element name="Get_Car_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_Car_ListResult" type="tns:ArrayOfCARLIST"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_GroupInfo_List">
+                <s:complexType/>
+            </s:element>
+            <s:element name="Get_GroupInfo_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_GroupInfo_ListResult" type="tns:ArrayOfGROUPINFO"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfGROUPINFO">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="GROUPINFO" nillable="true" type="tns:GROUPINFO"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="GROUPINFO">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="GROUPNAME" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Get_CarInfo">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="carNum" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_CarInfoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_CarInfoResult" type="tns:CARINFO"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="CARINFO">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="CARNUM" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="CARTYPE" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="GROUPNAME" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="NAME" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="TELNUMBER" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="ONLINE" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="SUMMILE" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="SUMUSEOIL" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="SUMCOUNTOIL" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="SUMADDOILL" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="CARIMG" type="s:base64Binary"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="PERIMG" type="s:base64Binary"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Get_DayOil_List">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="carNum" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="time" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_DayOil_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_DayOil_ListResult" type="tns:ArrayOfOILLIST"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfOILLIST">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="OILLIST" nillable="true" type="tns:OILLIST"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="OILLIST">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="CARNUM" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="TIME" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="OILL" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Get_PersonInfo">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_PersonInfoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_PersonInfoResult" type="tns:PERSONINFO"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="PERSONINFO">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="NAME" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="SEX" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="GROUPNAME" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="TELNUMBER" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="DRIVERNUMBER" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="COMPANY" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="YEARLYINSPECTION" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="DRIVING" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="DRIVERLEVEL" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="MASK" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="PERIMG" type="s:base64Binary"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Get_XYInfo_List">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="carNum" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="StartTime" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="EndTime" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_XYInfo_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_XYInfo_ListResult" type="tns:ArrayOfXYINFO"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfXYINFO">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="XYINFO" nillable="true" type="tns:XYINFO"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="XYINFO">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="CARNUM" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="X" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Y" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="TIME" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Get_MileAndUseOilInfo">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="carNum" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="StartTime" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="EndTime" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_MileAndUseOilInfoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_MileAndUseOilInfoResult" type="tns:ArrayOfMILEANDUSEOIL"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfMILEANDUSEOIL">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="MILEANDUSEOIL" nillable="true" type="tns:MILEANDUSEOIL"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="MILEANDUSEOIL">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="CARNUM" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="MILE" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="USEOIL" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="AVEUSEOIL" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="TIME" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Insert_CarInfo">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="NUM" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="CARNUM" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="CARNAME" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="CARTYPE" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="GROUPNAME" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="CARIMG" type="s:base64Binary"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Insert_CarInfoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="Insert_CarInfoResult" type="s:boolean"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Insert_PersonInfo">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="CARNUM" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="NAME" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="SEX" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="GROUPNAME" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="TELNUMBER" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="DRIVERNUMBER" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="COMPANY" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="YEARLYINSPECTION" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="DRIVING" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="DRIVERLEVEL" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="MASK" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="PERIMG" type="s:base64Binary"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Insert_PersonInfoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="Insert_PersonInfoResult" type="s:boolean"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_OneCarInsXY_List">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="CARNUM" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_OneCarInsXY_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_OneCarInsXY_ListResult" type="tns:INSTANTXY"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="INSTANTXY">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="CARNUM" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="TIME" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="X" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Y" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="OILL" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="ONLINE" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Get_AllCarInsXY_List">
+                <s:complexType/>
+            </s:element>
+            <s:element name="Get_AllCarInsXY_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_AllCarInsXY_ListResult" type="tns:ArrayOfINSTANTXY"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfINSTANTXY">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="INSTANTXY" nillable="true" type="tns:INSTANTXY"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Get_OilAlarmInfo_List">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="CARNUM" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="StartTime" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="EndTime" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_OilAlarmInfo_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_OilAlarmInfo_ListResult" type="tns:ArrayOfOILALARM"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfOILALARM">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="OILALARM" nillable="true" type="tns:OILALARM"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="OILALARM">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="CARNUM" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="TIME" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="OILL" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="UPORDOWN" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="NAME" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Insert_JYRecord">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="PerID" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="CARNUM" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="JYTime" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="JYLiang" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="JYJinE" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="JYIMG" type="s:base64Binary"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Insert_JYRecordResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="Insert_JYRecordResult" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_AllJYRecord">
+                <s:complexType/>
+            </s:element>
+            <s:element name="Get_AllJYRecordResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_AllJYRecordResult" type="tns:ArrayOfJYRECORD"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfJYRECORD">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="JYRECORD" nillable="true" type="tns:JYRECORD"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="JYRECORD">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="NAME" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="CARNUM" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="JYTime" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="JYLiang" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="JYJinE" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="PERIMG" type="s:base64Binary"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Get_OnePerJYRecord">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="PerID" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_OnePerJYRecordResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_OnePerJYRecordResult" type="tns:ArrayOfJYRECORD"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_CheckJYRecord">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="CARNUM" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="startTime" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="endTime" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_CheckJYRecordResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_CheckJYRecordResult" type="tns:ArrayOfJYRECORD"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_OneDayEveryHourRain_List">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="time" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_OneDayEveryHourRain_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_OneDayEveryHourRain_ListResult" type="tns:ArrayOfRainFall"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfRainFall">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="RainFall" nillable="true" type="tns:RainFall"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="RainFall">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="TIME" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="YMD" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="HH" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="ValueX" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="DevName" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Get_EveryHourSumRain_List">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="time" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_EveryHourSumRain_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_EveryHourSumRain_ListResult" type="tns:ArrayOfRainFallInfo"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfRainFallInfo">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="RainFallInfo" nillable="true" type="tns:RainFallInfo"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="RainFallInfo">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="HH" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="ValueX" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Get_RainStationName_List">
+                <s:complexType/>
+            </s:element>
+            <s:element name="Get_RainStationName_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_RainStationName_ListResult" type="tns:ArrayOfRainStationInfo"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfRainStationInfo">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="RainStationInfo" nillable="true" type="tns:RainStationInfo"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="RainStationInfo">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="NAME" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Get_CheckRainFallHistory_List">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="startTime" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="endTime" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_CheckRainFallHistory_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_CheckRainFallHistory_ListResult" type="tns:ArrayOfRainFall"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_CheckAllRainFallHistory_List">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="startTime" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="endTime" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_CheckAllRainFallHistory_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_CheckAllRainFallHistory_ListResult" type="tns:ArrayOfRainFall"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_RealTimeRainfall_List">
+                <s:complexType/>
+            </s:element>
+            <s:element name="Get_RealTimeRainfall_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_RealTimeRainfall_ListResult" type="tns:ArrayOfRainFall"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_EveryDevRainfallHH_List">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="time" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_EveryDevRainfallHH_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_EveryDevRainfallHH_ListResult" type="tns:ArrayOfRainFall"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_EveryDevRainfallEveryDay_List">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="time" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_EveryDevRainfallEveryDay_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_EveryDevRainfallEveryDay_ListResult" type="tns:ArrayOfRainFall"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_RainLoginOKOrNo">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="loginName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="loginPwd" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_RainLoginOKOrNoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_RainLoginOKOrNoResult" type="tns:RAINLOGINUSER"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="RAINLOGINUSER">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="RETURNNUM" type="s:int"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Insert_RainLoginUser">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="loginName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="loginPwd" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="NAME" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="IDCode" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Insert_RainLoginUserResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Insert_RainLoginUserResult" type="tns:RAINLOGINUSER"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_BengZhanWorkStat">
+                <s:complexType/>
+            </s:element>
+            <s:element name="Get_BengZhanWorkStatResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_BengZhanWorkStatResult" type="tns:BengState"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="BengState">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="workSum" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="noWorkSum" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="BengName" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="YeWeiState" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="JiaWanState" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="YiYangHuaTanState" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="LiuHuaQingState" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="AnQiState" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Get_YuShuiBengWorkStat">
+                <s:complexType/>
+            </s:element>
+            <s:element name="Get_YuShuiBengWorkStatResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_YuShuiBengWorkStatResult" type="tns:BengState"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_WuShuiBengWorkStat">
+                <s:complexType/>
+            </s:element>
+            <s:element name="Get_WuShuiBengWorkStatResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_WuShuiBengWorkStatResult" type="tns:BengState"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_OneBengZhanEveryDay">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="bengID" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="startTime" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="endTime" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_OneBengZhanEveryDayResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_OneBengZhanEveryDayResult" type="tns:ArrayOfBengInfo"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfBengInfo">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="BengInfo" nillable="true" type="tns:BengInfo"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="BengInfo">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="BengZhanName" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="BengZhanID" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="SumPaiShuiLiang" type="s:string"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="HH" type="s:int"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="TYPE" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="WorkCount" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="NotWorkCount" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Time" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Get_BengZhanLiuLiang">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="time" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_BengZhanLiuLiangResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_BengZhanLiuLiangResult" type="tns:ArrayOfBengLiuLiang"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfBengLiuLiang">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="BengLiuLiang" nillable="true" type="tns:BengLiuLiang"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="BengLiuLiang">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="BengZhanName" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="LiuLiang" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Get_BengZhanInfo_List">
+                <s:complexType/>
+            </s:element>
+            <s:element name="Get_BengZhanInfo_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_BengZhanInfo_ListResult" type="tns:ArrayOfBengInfo"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_AllBengZhanOneDay">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="startTime" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="endTime" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_AllBengZhanOneDayResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_AllBengZhanOneDayResult" type="tns:ArrayOfBengInfo"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_OneBengZhanHH_List">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="BengID" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="time" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_OneBengZhanHH_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_OneBengZhanHH_ListResult" type="tns:ArrayOfBengInfo"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_OneBengZhanLiuLiang">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="bengID" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="time" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_OneBengZhanLiuLiangResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_OneBengZhanLiuLiangResult" type="tns:BengInfo"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_BengZhanHH_List">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="time" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_BengZhanHH_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_BengZhanHH_ListResult" type="tns:ArrayOfBengInfo"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_YuBengZhanHH_List">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="time" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_YuBengZhanHH_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_YuBengZhanHH_ListResult" type="tns:ArrayOfBengInfo"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_WuBengZhanHH_List">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="time" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_WuBengZhanHH_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_WuBengZhanHH_ListResult" type="tns:ArrayOfBengInfo"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_ShuiShuiBengWorkAndNot">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="bengID" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_ShuiShuiBengWorkAndNotResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_ShuiShuiBengWorkAndNotResult" type="tns:BengInfo"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_BengZhanRealTimeState_List">
+                <s:complexType/>
+            </s:element>
+            <s:element name="Get_BengZhanRealTimeState_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_BengZhanRealTimeState_ListResult" type="tns:ArrayOfBengState"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfBengState">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="BengState" nillable="true" type="tns:BengState"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Get_CarWheterOnline">
+                <s:complexType/>
+            </s:element>
+            <s:element name="Get_CarWheterOnlineResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_CarWheterOnlineResult" type="tns:CARTONGJI"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="CARTONGJI">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="OnlineCount" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="OfflineCount" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Get_DayMainTongJi">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="time" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_DayMainTongJiResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_DayMainTongJiResult" type="tns:ArrayOfMAINTONGJI"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfMAINTONGJI">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="MAINTONGJI" nillable="true" type="tns:MAINTONGJI"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="MAINTONGJI">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="Day" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Month" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Mile" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Get_MonthMainTongJi">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="time" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_MonthMainTongJiResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_MonthMainTongJiResult" type="tns:ArrayOfMAINTONGJI"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_MonthOilTongJi">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="time" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_MonthOilTongJiResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_MonthOilTongJiResult" type="tns:ArrayOfOILTONGJI"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfOILTONGJI">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="OILTONGJI" nillable="true" type="tns:OILTONGJI"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="OILTONGJI">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="Month" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Year" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Oil" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Get_YearOilTongJi">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="time" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_YearOilTongJiResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_YearOilTongJiResult" type="tns:ArrayOfOILTONGJI"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GET_CONSTANTNUM">
+                <s:complexType/>
+            </s:element>
+            <s:element name="GET_CONSTANTNUMResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GET_CONSTANTNUMResult" type="tns:CONSNUM"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="CONSNUM">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="DownspoutsLength" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="SewerLength" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="SewerStationNum" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="RainStationNum" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="MonitoringCarNum" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="PumpPlantVideoNum" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="IsMonitoredRoadNum" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="NAME" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="VALUE" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="UNIT" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="GET_ConstantNameAndNum">
+                <s:complexType/>
+            </s:element>
+            <s:element name="GET_ConstantNameAndNumResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GET_ConstantNameAndNumResult" type="tns:ArrayOfCONSNUM"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfCONSNUM">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="CONSNUM" nillable="true" type="tns:CONSNUM"/>
+                </s:sequence>
+            </s:complexType>
+        </s:schema>
+    </wsdl:types>
+    <wsdl:message name="Get_LoginOKOrNoSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_LoginOKOrNo"/>
+    </wsdl:message>
+    <wsdl:message name="Get_LoginOKOrNoSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_LoginOKOrNoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Insert_LoginUserSoapIn">
+        <wsdl:part name="parameters" element="tns:Insert_LoginUser"/>
+    </wsdl:message>
+    <wsdl:message name="Insert_LoginUserSoapOut">
+        <wsdl:part name="parameters" element="tns:Insert_LoginUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_LoginUserInfoSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_LoginUserInfo"/>
+    </wsdl:message>
+    <wsdl:message name="Get_LoginUserInfoSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_LoginUserInfoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_LoginUserNameInfo_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_LoginUserNameInfo_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_LoginUserNameInfo_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_LoginUserNameInfo_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Update_UserAndPersonSoapIn">
+        <wsdl:part name="parameters" element="tns:Update_UserAndPerson"/>
+    </wsdl:message>
+    <wsdl:message name="Update_UserAndPersonSoapOut">
+        <wsdl:part name="parameters" element="tns:Update_UserAndPersonResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_LoginUserInfo_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_LoginUserInfo_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_LoginUserInfo_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_LoginUserInfo_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_CheckLoginUserInfo_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_CheckLoginUserInfo_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_CheckLoginUserInfo_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_CheckLoginUserInfo_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="HelloWorldSoapIn">
+        <wsdl:part name="parameters" element="tns:HelloWorld"/>
+    </wsdl:message>
+    <wsdl:message name="HelloWorldSoapOut">
+        <wsdl:part name="parameters" element="tns:HelloWorldResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_Num_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_Num_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_Num_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_Num_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_NewNum_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_NewNum_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_NewNum_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_NewNum_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_CarOilBox_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_CarOilBox_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_CarOilBox_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_CarOilBox_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_CarNum_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_CarNum_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_CarNum_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_CarNum_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_CarNoPic_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_CarNoPic_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_CarNoPic_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_CarNoPic_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_Car_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_Car_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_Car_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_Car_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_GroupInfo_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_GroupInfo_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_GroupInfo_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_GroupInfo_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_CarInfoSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_CarInfo"/>
+    </wsdl:message>
+    <wsdl:message name="Get_CarInfoSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_CarInfoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_DayOil_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_DayOil_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_DayOil_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_DayOil_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_PersonInfoSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_PersonInfo"/>
+    </wsdl:message>
+    <wsdl:message name="Get_PersonInfoSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_PersonInfoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_XYInfo_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_XYInfo_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_XYInfo_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_XYInfo_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_MileAndUseOilInfoSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_MileAndUseOilInfo"/>
+    </wsdl:message>
+    <wsdl:message name="Get_MileAndUseOilInfoSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_MileAndUseOilInfoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Insert_CarInfoSoapIn">
+        <wsdl:part name="parameters" element="tns:Insert_CarInfo"/>
+    </wsdl:message>
+    <wsdl:message name="Insert_CarInfoSoapOut">
+        <wsdl:part name="parameters" element="tns:Insert_CarInfoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Insert_PersonInfoSoapIn">
+        <wsdl:part name="parameters" element="tns:Insert_PersonInfo"/>
+    </wsdl:message>
+    <wsdl:message name="Insert_PersonInfoSoapOut">
+        <wsdl:part name="parameters" element="tns:Insert_PersonInfoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_OneCarInsXY_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_OneCarInsXY_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_OneCarInsXY_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_OneCarInsXY_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_AllCarInsXY_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_AllCarInsXY_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_AllCarInsXY_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_AllCarInsXY_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_OilAlarmInfo_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_OilAlarmInfo_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_OilAlarmInfo_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_OilAlarmInfo_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Insert_JYRecordSoapIn">
+        <wsdl:part name="parameters" element="tns:Insert_JYRecord"/>
+    </wsdl:message>
+    <wsdl:message name="Insert_JYRecordSoapOut">
+        <wsdl:part name="parameters" element="tns:Insert_JYRecordResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_AllJYRecordSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_AllJYRecord"/>
+    </wsdl:message>
+    <wsdl:message name="Get_AllJYRecordSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_AllJYRecordResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_OnePerJYRecordSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_OnePerJYRecord"/>
+    </wsdl:message>
+    <wsdl:message name="Get_OnePerJYRecordSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_OnePerJYRecordResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_CheckJYRecordSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_CheckJYRecord"/>
+    </wsdl:message>
+    <wsdl:message name="Get_CheckJYRecordSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_CheckJYRecordResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_OneDayEveryHourRain_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_OneDayEveryHourRain_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_OneDayEveryHourRain_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_OneDayEveryHourRain_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_EveryHourSumRain_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_EveryHourSumRain_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_EveryHourSumRain_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_EveryHourSumRain_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_RainStationName_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_RainStationName_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_RainStationName_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_RainStationName_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_CheckRainFallHistory_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_CheckRainFallHistory_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_CheckRainFallHistory_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_CheckRainFallHistory_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_CheckAllRainFallHistory_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_CheckAllRainFallHistory_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_CheckAllRainFallHistory_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_CheckAllRainFallHistory_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_RealTimeRainfall_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_RealTimeRainfall_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_RealTimeRainfall_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_RealTimeRainfall_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_EveryDevRainfallHH_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_EveryDevRainfallHH_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_EveryDevRainfallHH_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_EveryDevRainfallHH_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_EveryDevRainfallEveryDay_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_EveryDevRainfallEveryDay_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_EveryDevRainfallEveryDay_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_EveryDevRainfallEveryDay_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_RainLoginOKOrNoSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_RainLoginOKOrNo"/>
+    </wsdl:message>
+    <wsdl:message name="Get_RainLoginOKOrNoSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_RainLoginOKOrNoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Insert_RainLoginUserSoapIn">
+        <wsdl:part name="parameters" element="tns:Insert_RainLoginUser"/>
+    </wsdl:message>
+    <wsdl:message name="Insert_RainLoginUserSoapOut">
+        <wsdl:part name="parameters" element="tns:Insert_RainLoginUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_BengZhanWorkStatSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_BengZhanWorkStat"/>
+    </wsdl:message>
+    <wsdl:message name="Get_BengZhanWorkStatSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_BengZhanWorkStatResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_YuShuiBengWorkStatSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_YuShuiBengWorkStat"/>
+    </wsdl:message>
+    <wsdl:message name="Get_YuShuiBengWorkStatSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_YuShuiBengWorkStatResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_WuShuiBengWorkStatSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_WuShuiBengWorkStat"/>
+    </wsdl:message>
+    <wsdl:message name="Get_WuShuiBengWorkStatSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_WuShuiBengWorkStatResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_OneBengZhanEveryDaySoapIn">
+        <wsdl:part name="parameters" element="tns:Get_OneBengZhanEveryDay"/>
+    </wsdl:message>
+    <wsdl:message name="Get_OneBengZhanEveryDaySoapOut">
+        <wsdl:part name="parameters" element="tns:Get_OneBengZhanEveryDayResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_BengZhanLiuLiangSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_BengZhanLiuLiang"/>
+    </wsdl:message>
+    <wsdl:message name="Get_BengZhanLiuLiangSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_BengZhanLiuLiangResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_BengZhanInfo_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_BengZhanInfo_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_BengZhanInfo_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_BengZhanInfo_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_AllBengZhanOneDaySoapIn">
+        <wsdl:part name="parameters" element="tns:Get_AllBengZhanOneDay"/>
+    </wsdl:message>
+    <wsdl:message name="Get_AllBengZhanOneDaySoapOut">
+        <wsdl:part name="parameters" element="tns:Get_AllBengZhanOneDayResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_OneBengZhanHH_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_OneBengZhanHH_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_OneBengZhanHH_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_OneBengZhanHH_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_OneBengZhanLiuLiangSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_OneBengZhanLiuLiang"/>
+    </wsdl:message>
+    <wsdl:message name="Get_OneBengZhanLiuLiangSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_OneBengZhanLiuLiangResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_BengZhanHH_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_BengZhanHH_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_BengZhanHH_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_BengZhanHH_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_YuBengZhanHH_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_YuBengZhanHH_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_YuBengZhanHH_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_YuBengZhanHH_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_WuBengZhanHH_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_WuBengZhanHH_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_WuBengZhanHH_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_WuBengZhanHH_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_ShuiShuiBengWorkAndNotSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_ShuiShuiBengWorkAndNot"/>
+    </wsdl:message>
+    <wsdl:message name="Get_ShuiShuiBengWorkAndNotSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_ShuiShuiBengWorkAndNotResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_BengZhanRealTimeState_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_BengZhanRealTimeState_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_BengZhanRealTimeState_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_BengZhanRealTimeState_ListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_CarWheterOnlineSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_CarWheterOnline"/>
+    </wsdl:message>
+    <wsdl:message name="Get_CarWheterOnlineSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_CarWheterOnlineResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_DayMainTongJiSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_DayMainTongJi"/>
+    </wsdl:message>
+    <wsdl:message name="Get_DayMainTongJiSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_DayMainTongJiResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_MonthMainTongJiSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_MonthMainTongJi"/>
+    </wsdl:message>
+    <wsdl:message name="Get_MonthMainTongJiSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_MonthMainTongJiResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_MonthOilTongJiSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_MonthOilTongJi"/>
+    </wsdl:message>
+    <wsdl:message name="Get_MonthOilTongJiSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_MonthOilTongJiResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Get_YearOilTongJiSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_YearOilTongJi"/>
+    </wsdl:message>
+    <wsdl:message name="Get_YearOilTongJiSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_YearOilTongJiResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GET_CONSTANTNUMSoapIn">
+        <wsdl:part name="parameters" element="tns:GET_CONSTANTNUM"/>
+    </wsdl:message>
+    <wsdl:message name="GET_CONSTANTNUMSoapOut">
+        <wsdl:part name="parameters" element="tns:GET_CONSTANTNUMResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GET_ConstantNameAndNumSoapIn">
+        <wsdl:part name="parameters" element="tns:GET_ConstantNameAndNum"/>
+    </wsdl:message>
+    <wsdl:message name="GET_ConstantNameAndNumSoapOut">
+        <wsdl:part name="parameters" element="tns:GET_ConstantNameAndNumResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="GPSServiceSoap">
+        <wsdl:operation name="Get_LoginOKOrNo">
+            <wsdl:input message="tns:Get_LoginOKOrNoSoapIn"/>
+            <wsdl:output message="tns:Get_LoginOKOrNoSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Insert_LoginUser">
+            <wsdl:input message="tns:Insert_LoginUserSoapIn"/>
+            <wsdl:output message="tns:Insert_LoginUserSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_LoginUserInfo">
+            <wsdl:input message="tns:Get_LoginUserInfoSoapIn"/>
+            <wsdl:output message="tns:Get_LoginUserInfoSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_LoginUserNameInfo_List">
+            <wsdl:input message="tns:Get_LoginUserNameInfo_ListSoapIn"/>
+            <wsdl:output message="tns:Get_LoginUserNameInfo_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Update_UserAndPerson">
+            <wsdl:input message="tns:Update_UserAndPersonSoapIn"/>
+            <wsdl:output message="tns:Update_UserAndPersonSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_LoginUserInfo_List">
+            <wsdl:input message="tns:Get_LoginUserInfo_ListSoapIn"/>
+            <wsdl:output message="tns:Get_LoginUserInfo_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CheckLoginUserInfo_List">
+            <wsdl:input message="tns:Get_CheckLoginUserInfo_ListSoapIn"/>
+            <wsdl:output message="tns:Get_CheckLoginUserInfo_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="HelloWorld">
+            <wsdl:input message="tns:HelloWorldSoapIn"/>
+            <wsdl:output message="tns:HelloWorldSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_Num_List">
+            <wsdl:input message="tns:Get_Num_ListSoapIn"/>
+            <wsdl:output message="tns:Get_Num_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_NewNum_List">
+            <wsdl:input message="tns:Get_NewNum_ListSoapIn"/>
+            <wsdl:output message="tns:Get_NewNum_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CarOilBox_List">
+            <wsdl:input message="tns:Get_CarOilBox_ListSoapIn"/>
+            <wsdl:output message="tns:Get_CarOilBox_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CarNum_List">
+            <wsdl:input message="tns:Get_CarNum_ListSoapIn"/>
+            <wsdl:output message="tns:Get_CarNum_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CarNoPic_List">
+            <wsdl:input message="tns:Get_CarNoPic_ListSoapIn"/>
+            <wsdl:output message="tns:Get_CarNoPic_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_Car_List">
+            <wsdl:input message="tns:Get_Car_ListSoapIn"/>
+            <wsdl:output message="tns:Get_Car_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_GroupInfo_List">
+            <wsdl:input message="tns:Get_GroupInfo_ListSoapIn"/>
+            <wsdl:output message="tns:Get_GroupInfo_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CarInfo">
+            <wsdl:input message="tns:Get_CarInfoSoapIn"/>
+            <wsdl:output message="tns:Get_CarInfoSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_DayOil_List">
+            <wsdl:input message="tns:Get_DayOil_ListSoapIn"/>
+            <wsdl:output message="tns:Get_DayOil_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_PersonInfo">
+            <wsdl:input message="tns:Get_PersonInfoSoapIn"/>
+            <wsdl:output message="tns:Get_PersonInfoSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_XYInfo_List">
+            <wsdl:input message="tns:Get_XYInfo_ListSoapIn"/>
+            <wsdl:output message="tns:Get_XYInfo_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_MileAndUseOilInfo">
+            <wsdl:input message="tns:Get_MileAndUseOilInfoSoapIn"/>
+            <wsdl:output message="tns:Get_MileAndUseOilInfoSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Insert_CarInfo">
+            <wsdl:input message="tns:Insert_CarInfoSoapIn"/>
+            <wsdl:output message="tns:Insert_CarInfoSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Insert_PersonInfo">
+            <wsdl:input message="tns:Insert_PersonInfoSoapIn"/>
+            <wsdl:output message="tns:Insert_PersonInfoSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_OneCarInsXY_List">
+            <wsdl:input message="tns:Get_OneCarInsXY_ListSoapIn"/>
+            <wsdl:output message="tns:Get_OneCarInsXY_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_AllCarInsXY_List">
+            <wsdl:input message="tns:Get_AllCarInsXY_ListSoapIn"/>
+            <wsdl:output message="tns:Get_AllCarInsXY_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_OilAlarmInfo_List">
+            <wsdl:input message="tns:Get_OilAlarmInfo_ListSoapIn"/>
+            <wsdl:output message="tns:Get_OilAlarmInfo_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Insert_JYRecord">
+            <wsdl:input message="tns:Insert_JYRecordSoapIn"/>
+            <wsdl:output message="tns:Insert_JYRecordSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_AllJYRecord">
+            <wsdl:input message="tns:Get_AllJYRecordSoapIn"/>
+            <wsdl:output message="tns:Get_AllJYRecordSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_OnePerJYRecord">
+            <wsdl:input message="tns:Get_OnePerJYRecordSoapIn"/>
+            <wsdl:output message="tns:Get_OnePerJYRecordSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CheckJYRecord">
+            <wsdl:input message="tns:Get_CheckJYRecordSoapIn"/>
+            <wsdl:output message="tns:Get_CheckJYRecordSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_OneDayEveryHourRain_List">
+            <wsdl:input message="tns:Get_OneDayEveryHourRain_ListSoapIn"/>
+            <wsdl:output message="tns:Get_OneDayEveryHourRain_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_EveryHourSumRain_List">
+            <wsdl:input message="tns:Get_EveryHourSumRain_ListSoapIn"/>
+            <wsdl:output message="tns:Get_EveryHourSumRain_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_RainStationName_List">
+            <wsdl:input message="tns:Get_RainStationName_ListSoapIn"/>
+            <wsdl:output message="tns:Get_RainStationName_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CheckRainFallHistory_List">
+            <wsdl:input message="tns:Get_CheckRainFallHistory_ListSoapIn"/>
+            <wsdl:output message="tns:Get_CheckRainFallHistory_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CheckAllRainFallHistory_List">
+            <wsdl:input message="tns:Get_CheckAllRainFallHistory_ListSoapIn"/>
+            <wsdl:output message="tns:Get_CheckAllRainFallHistory_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_RealTimeRainfall_List">
+            <wsdl:input message="tns:Get_RealTimeRainfall_ListSoapIn"/>
+            <wsdl:output message="tns:Get_RealTimeRainfall_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_EveryDevRainfallHH_List">
+            <wsdl:input message="tns:Get_EveryDevRainfallHH_ListSoapIn"/>
+            <wsdl:output message="tns:Get_EveryDevRainfallHH_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_EveryDevRainfallEveryDay_List">
+            <wsdl:input message="tns:Get_EveryDevRainfallEveryDay_ListSoapIn"/>
+            <wsdl:output message="tns:Get_EveryDevRainfallEveryDay_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_RainLoginOKOrNo">
+            <wsdl:input message="tns:Get_RainLoginOKOrNoSoapIn"/>
+            <wsdl:output message="tns:Get_RainLoginOKOrNoSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Insert_RainLoginUser">
+            <wsdl:input message="tns:Insert_RainLoginUserSoapIn"/>
+            <wsdl:output message="tns:Insert_RainLoginUserSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_BengZhanWorkStat">
+            <wsdl:input message="tns:Get_BengZhanWorkStatSoapIn"/>
+            <wsdl:output message="tns:Get_BengZhanWorkStatSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_YuShuiBengWorkStat">
+            <wsdl:input message="tns:Get_YuShuiBengWorkStatSoapIn"/>
+            <wsdl:output message="tns:Get_YuShuiBengWorkStatSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_WuShuiBengWorkStat">
+            <wsdl:input message="tns:Get_WuShuiBengWorkStatSoapIn"/>
+            <wsdl:output message="tns:Get_WuShuiBengWorkStatSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_OneBengZhanEveryDay">
+            <wsdl:input message="tns:Get_OneBengZhanEveryDaySoapIn"/>
+            <wsdl:output message="tns:Get_OneBengZhanEveryDaySoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_BengZhanLiuLiang">
+            <wsdl:input message="tns:Get_BengZhanLiuLiangSoapIn"/>
+            <wsdl:output message="tns:Get_BengZhanLiuLiangSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_BengZhanInfo_List">
+            <wsdl:input message="tns:Get_BengZhanInfo_ListSoapIn"/>
+            <wsdl:output message="tns:Get_BengZhanInfo_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_AllBengZhanOneDay">
+            <wsdl:input message="tns:Get_AllBengZhanOneDaySoapIn"/>
+            <wsdl:output message="tns:Get_AllBengZhanOneDaySoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_OneBengZhanHH_List">
+            <wsdl:input message="tns:Get_OneBengZhanHH_ListSoapIn"/>
+            <wsdl:output message="tns:Get_OneBengZhanHH_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_OneBengZhanLiuLiang">
+            <wsdl:input message="tns:Get_OneBengZhanLiuLiangSoapIn"/>
+            <wsdl:output message="tns:Get_OneBengZhanLiuLiangSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_BengZhanHH_List">
+            <wsdl:input message="tns:Get_BengZhanHH_ListSoapIn"/>
+            <wsdl:output message="tns:Get_BengZhanHH_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_YuBengZhanHH_List">
+            <wsdl:input message="tns:Get_YuBengZhanHH_ListSoapIn"/>
+            <wsdl:output message="tns:Get_YuBengZhanHH_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_WuBengZhanHH_List">
+            <wsdl:input message="tns:Get_WuBengZhanHH_ListSoapIn"/>
+            <wsdl:output message="tns:Get_WuBengZhanHH_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_ShuiShuiBengWorkAndNot">
+            <wsdl:input message="tns:Get_ShuiShuiBengWorkAndNotSoapIn"/>
+            <wsdl:output message="tns:Get_ShuiShuiBengWorkAndNotSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_BengZhanRealTimeState_List">
+            <wsdl:input message="tns:Get_BengZhanRealTimeState_ListSoapIn"/>
+            <wsdl:output message="tns:Get_BengZhanRealTimeState_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CarWheterOnline">
+            <wsdl:input message="tns:Get_CarWheterOnlineSoapIn"/>
+            <wsdl:output message="tns:Get_CarWheterOnlineSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_DayMainTongJi">
+            <wsdl:input message="tns:Get_DayMainTongJiSoapIn"/>
+            <wsdl:output message="tns:Get_DayMainTongJiSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_MonthMainTongJi">
+            <wsdl:input message="tns:Get_MonthMainTongJiSoapIn"/>
+            <wsdl:output message="tns:Get_MonthMainTongJiSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_MonthOilTongJi">
+            <wsdl:input message="tns:Get_MonthOilTongJiSoapIn"/>
+            <wsdl:output message="tns:Get_MonthOilTongJiSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_YearOilTongJi">
+            <wsdl:input message="tns:Get_YearOilTongJiSoapIn"/>
+            <wsdl:output message="tns:Get_YearOilTongJiSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GET_CONSTANTNUM">
+            <wsdl:input message="tns:GET_CONSTANTNUMSoapIn"/>
+            <wsdl:output message="tns:GET_CONSTANTNUMSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GET_ConstantNameAndNum">
+            <wsdl:input message="tns:GET_ConstantNameAndNumSoapIn"/>
+            <wsdl:output message="tns:GET_ConstantNameAndNumSoapOut"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="GPSServiceSoap" type="tns:GPSServiceSoap">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="Get_LoginOKOrNo">
+            <soap:operation soapAction="http://tempuri.org/Get_LoginOKOrNo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Insert_LoginUser">
+            <soap:operation soapAction="http://tempuri.org/Insert_LoginUser" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_LoginUserInfo">
+            <soap:operation soapAction="http://tempuri.org/Get_LoginUserInfo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_LoginUserNameInfo_List">
+            <soap:operation soapAction="http://tempuri.org/Get_LoginUserNameInfo_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Update_UserAndPerson">
+            <soap:operation soapAction="http://tempuri.org/Update_UserAndPerson" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_LoginUserInfo_List">
+            <soap:operation soapAction="http://tempuri.org/Get_LoginUserInfo_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CheckLoginUserInfo_List">
+            <soap:operation soapAction="http://tempuri.org/Get_CheckLoginUserInfo_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="HelloWorld">
+            <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_Num_List">
+            <soap:operation soapAction="http://tempuri.org/Get_Num_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_NewNum_List">
+            <soap:operation soapAction="http://tempuri.org/Get_NewNum_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CarOilBox_List">
+            <soap:operation soapAction="http://tempuri.org/Get_CarOilBox_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CarNum_List">
+            <soap:operation soapAction="http://tempuri.org/Get_CarNum_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CarNoPic_List">
+            <soap:operation soapAction="http://tempuri.org/Get_CarNoPic_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_Car_List">
+            <soap:operation soapAction="http://tempuri.org/Get_Car_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_GroupInfo_List">
+            <soap:operation soapAction="http://tempuri.org/Get_GroupInfo_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CarInfo">
+            <soap:operation soapAction="http://tempuri.org/Get_CarInfo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_DayOil_List">
+            <soap:operation soapAction="http://tempuri.org/Get_DayOil_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_PersonInfo">
+            <soap:operation soapAction="http://tempuri.org/Get_PersonInfo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_XYInfo_List">
+            <soap:operation soapAction="http://tempuri.org/Get_XYInfo_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_MileAndUseOilInfo">
+            <soap:operation soapAction="http://tempuri.org/Get_MileAndUseOilInfo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Insert_CarInfo">
+            <soap:operation soapAction="http://tempuri.org/Insert_CarInfo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Insert_PersonInfo">
+            <soap:operation soapAction="http://tempuri.org/Insert_PersonInfo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_OneCarInsXY_List">
+            <soap:operation soapAction="http://tempuri.org/Get_OneCarInsXY_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_AllCarInsXY_List">
+            <soap:operation soapAction="http://tempuri.org/Get_AllCarInsXY_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_OilAlarmInfo_List">
+            <soap:operation soapAction="http://tempuri.org/Get_OilAlarmInfo_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Insert_JYRecord">
+            <soap:operation soapAction="http://tempuri.org/Insert_JYRecord" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_AllJYRecord">
+            <soap:operation soapAction="http://tempuri.org/Get_AllJYRecord" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_OnePerJYRecord">
+            <soap:operation soapAction="http://tempuri.org/Get_OnePerJYRecord" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CheckJYRecord">
+            <soap:operation soapAction="http://tempuri.org/Get_CheckJYRecord" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_OneDayEveryHourRain_List">
+            <soap:operation soapAction="http://tempuri.org/Get_OneDayEveryHourRain_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_EveryHourSumRain_List">
+            <soap:operation soapAction="http://tempuri.org/Get_EveryHourSumRain_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_RainStationName_List">
+            <soap:operation soapAction="http://tempuri.org/Get_RainStationName_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CheckRainFallHistory_List">
+            <soap:operation soapAction="http://tempuri.org/Get_CheckRainFallHistory_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CheckAllRainFallHistory_List">
+            <soap:operation soapAction="http://tempuri.org/Get_CheckAllRainFallHistory_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_RealTimeRainfall_List">
+            <soap:operation soapAction="http://tempuri.org/Get_RealTimeRainfall_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_EveryDevRainfallHH_List">
+            <soap:operation soapAction="http://tempuri.org/Get_EveryDevRainfallHH_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_EveryDevRainfallEveryDay_List">
+            <soap:operation soapAction="http://tempuri.org/Get_EveryDevRainfallEveryDay_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_RainLoginOKOrNo">
+            <soap:operation soapAction="http://tempuri.org/Get_RainLoginOKOrNo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Insert_RainLoginUser">
+            <soap:operation soapAction="http://tempuri.org/Insert_RainLoginUser" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_BengZhanWorkStat">
+            <soap:operation soapAction="http://tempuri.org/Get_BengZhanWorkStat" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_YuShuiBengWorkStat">
+            <soap:operation soapAction="http://tempuri.org/Get_YuShuiBengWorkStat" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_WuShuiBengWorkStat">
+            <soap:operation soapAction="http://tempuri.org/Get_WuShuiBengWorkStat" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_OneBengZhanEveryDay">
+            <soap:operation soapAction="http://tempuri.org/Get_OneBengZhanEveryDay" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_BengZhanLiuLiang">
+            <soap:operation soapAction="http://tempuri.org/Get_BengZhanLiuLiang" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_BengZhanInfo_List">
+            <soap:operation soapAction="http://tempuri.org/Get_BengZhanInfo_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_AllBengZhanOneDay">
+            <soap:operation soapAction="http://tempuri.org/Get_AllBengZhanOneDay" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_OneBengZhanHH_List">
+            <soap:operation soapAction="http://tempuri.org/Get_OneBengZhanHH_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_OneBengZhanLiuLiang">
+            <soap:operation soapAction="http://tempuri.org/Get_OneBengZhanLiuLiang" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_BengZhanHH_List">
+            <soap:operation soapAction="http://tempuri.org/Get_BengZhanHH_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_YuBengZhanHH_List">
+            <soap:operation soapAction="http://tempuri.org/Get_YuBengZhanHH_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_WuBengZhanHH_List">
+            <soap:operation soapAction="http://tempuri.org/Get_WuBengZhanHH_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_ShuiShuiBengWorkAndNot">
+            <soap:operation soapAction="http://tempuri.org/Get_ShuiShuiBengWorkAndNot" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_BengZhanRealTimeState_List">
+            <soap:operation soapAction="http://tempuri.org/Get_BengZhanRealTimeState_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CarWheterOnline">
+            <soap:operation soapAction="http://tempuri.org/Get_CarWheterOnline" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_DayMainTongJi">
+            <soap:operation soapAction="http://tempuri.org/Get_DayMainTongJi" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_MonthMainTongJi">
+            <soap:operation soapAction="http://tempuri.org/Get_MonthMainTongJi" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_MonthOilTongJi">
+            <soap:operation soapAction="http://tempuri.org/Get_MonthOilTongJi" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_YearOilTongJi">
+            <soap:operation soapAction="http://tempuri.org/Get_YearOilTongJi" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GET_CONSTANTNUM">
+            <soap:operation soapAction="http://tempuri.org/GET_CONSTANTNUM" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GET_ConstantNameAndNum">
+            <soap:operation soapAction="http://tempuri.org/GET_ConstantNameAndNum" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="GPSServiceSoap12" type="tns:GPSServiceSoap">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="Get_LoginOKOrNo">
+            <soap12:operation soapAction="http://tempuri.org/Get_LoginOKOrNo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Insert_LoginUser">
+            <soap12:operation soapAction="http://tempuri.org/Insert_LoginUser" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_LoginUserInfo">
+            <soap12:operation soapAction="http://tempuri.org/Get_LoginUserInfo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_LoginUserNameInfo_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_LoginUserNameInfo_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Update_UserAndPerson">
+            <soap12:operation soapAction="http://tempuri.org/Update_UserAndPerson" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_LoginUserInfo_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_LoginUserInfo_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CheckLoginUserInfo_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_CheckLoginUserInfo_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="HelloWorld">
+            <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_Num_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_Num_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_NewNum_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_NewNum_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CarOilBox_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_CarOilBox_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CarNum_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_CarNum_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CarNoPic_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_CarNoPic_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_Car_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_Car_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_GroupInfo_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_GroupInfo_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CarInfo">
+            <soap12:operation soapAction="http://tempuri.org/Get_CarInfo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_DayOil_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_DayOil_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_PersonInfo">
+            <soap12:operation soapAction="http://tempuri.org/Get_PersonInfo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_XYInfo_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_XYInfo_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_MileAndUseOilInfo">
+            <soap12:operation soapAction="http://tempuri.org/Get_MileAndUseOilInfo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Insert_CarInfo">
+            <soap12:operation soapAction="http://tempuri.org/Insert_CarInfo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Insert_PersonInfo">
+            <soap12:operation soapAction="http://tempuri.org/Insert_PersonInfo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_OneCarInsXY_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_OneCarInsXY_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_AllCarInsXY_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_AllCarInsXY_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_OilAlarmInfo_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_OilAlarmInfo_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Insert_JYRecord">
+            <soap12:operation soapAction="http://tempuri.org/Insert_JYRecord" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_AllJYRecord">
+            <soap12:operation soapAction="http://tempuri.org/Get_AllJYRecord" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_OnePerJYRecord">
+            <soap12:operation soapAction="http://tempuri.org/Get_OnePerJYRecord" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CheckJYRecord">
+            <soap12:operation soapAction="http://tempuri.org/Get_CheckJYRecord" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_OneDayEveryHourRain_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_OneDayEveryHourRain_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_EveryHourSumRain_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_EveryHourSumRain_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_RainStationName_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_RainStationName_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CheckRainFallHistory_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_CheckRainFallHistory_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CheckAllRainFallHistory_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_CheckAllRainFallHistory_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_RealTimeRainfall_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_RealTimeRainfall_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_EveryDevRainfallHH_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_EveryDevRainfallHH_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_EveryDevRainfallEveryDay_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_EveryDevRainfallEveryDay_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_RainLoginOKOrNo">
+            <soap12:operation soapAction="http://tempuri.org/Get_RainLoginOKOrNo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Insert_RainLoginUser">
+            <soap12:operation soapAction="http://tempuri.org/Insert_RainLoginUser" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_BengZhanWorkStat">
+            <soap12:operation soapAction="http://tempuri.org/Get_BengZhanWorkStat" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_YuShuiBengWorkStat">
+            <soap12:operation soapAction="http://tempuri.org/Get_YuShuiBengWorkStat" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_WuShuiBengWorkStat">
+            <soap12:operation soapAction="http://tempuri.org/Get_WuShuiBengWorkStat" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_OneBengZhanEveryDay">
+            <soap12:operation soapAction="http://tempuri.org/Get_OneBengZhanEveryDay" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_BengZhanLiuLiang">
+            <soap12:operation soapAction="http://tempuri.org/Get_BengZhanLiuLiang" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_BengZhanInfo_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_BengZhanInfo_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_AllBengZhanOneDay">
+            <soap12:operation soapAction="http://tempuri.org/Get_AllBengZhanOneDay" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_OneBengZhanHH_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_OneBengZhanHH_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_OneBengZhanLiuLiang">
+            <soap12:operation soapAction="http://tempuri.org/Get_OneBengZhanLiuLiang" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_BengZhanHH_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_BengZhanHH_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_YuBengZhanHH_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_YuBengZhanHH_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_WuBengZhanHH_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_WuBengZhanHH_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_ShuiShuiBengWorkAndNot">
+            <soap12:operation soapAction="http://tempuri.org/Get_ShuiShuiBengWorkAndNot" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_BengZhanRealTimeState_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_BengZhanRealTimeState_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_CarWheterOnline">
+            <soap12:operation soapAction="http://tempuri.org/Get_CarWheterOnline" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_DayMainTongJi">
+            <soap12:operation soapAction="http://tempuri.org/Get_DayMainTongJi" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_MonthMainTongJi">
+            <soap12:operation soapAction="http://tempuri.org/Get_MonthMainTongJi" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_MonthOilTongJi">
+            <soap12:operation soapAction="http://tempuri.org/Get_MonthOilTongJi" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_YearOilTongJi">
+            <soap12:operation soapAction="http://tempuri.org/Get_YearOilTongJi" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GET_CONSTANTNUM">
+            <soap12:operation soapAction="http://tempuri.org/GET_CONSTANTNUM" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GET_ConstantNameAndNum">
+            <soap12:operation soapAction="http://tempuri.org/GET_ConstantNameAndNum" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="GPSService">
+        <wsdl:port name="GPSServiceSoap" binding="tns:GPSServiceSoap">
+            <soap:address location="http://beidoujieshou.sytxmap.com:5963/GPSService.asmx"/>
+        </wsdl:port>
+        <wsdl:port name="GPSServiceSoap12" binding="tns:GPSServiceSoap12">
+            <soap12:address location="http://beidoujieshou.sytxmap.com:5963/GPSService.asmx"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

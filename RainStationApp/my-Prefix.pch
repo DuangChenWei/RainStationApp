@@ -1,0 +1,49 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#import "SDAutoLayout.h"
+
+#define k_ScreenWidth [UIScreen mainScreen].bounds.size.width
+#define k_ScreenHeight [UIScreen mainScreen].bounds.size.height
+
+
+#define widthOn(a) (a/750.0)*[UIScreen mainScreen].bounds.size.width
+#define heightOn(a) (a/1334.0)*[UIScreen mainScreen].bounds.size.height
+
+#define ColorWithAlpha(a,b) [UIColor colorWithRed:((a>>16)&0x000000ff)/255.0 green:((a>>8)&0x000000ff)/255.0 blue:((a)&0x000000ff)/255.0 alpha:b]
+#define appMainColor [UIColor colorWithRed:35/255.0 green:197/255.0 blue:184/255.0 alpha:1]
+#define appLineColor [UIColor colorWithRed:231/255.0 green:232/255.0 blue:232/255.0 alpha:1]
+#define appDarkLabelColor [UIColor colorWithRed:137/255.0 green:136/255.0 blue:137/255.0 alpha:1]
+#define appNavigationBarHeight 64
+
+
+
+
+#define BeiDouServiceUrl @"http://beidoujieshou.sytxmap.com"
+#define BengZhanServiceUrl @"http://appwebservices.bengzhan.sytxmap.com/appbengzhanservices.asmx"
+#define MapViewUrl @"http://ysmapservices.sytxmap.com/arcgis/rest/services/New/ZongTu_Wai/MapServer"
+#ifndef __OPTIMIZE__
+#define NSLog(...) NSLog(__VA_ARGS__)
+
+
+#else
+#define NSLog(...) {}
+
+
+#endif
+
+#define MYLocalizedString(key, comment) (([[[NSLocale preferredLanguages] objectAtIndex:0] hasPrefix:@"zh-Hans"])?([[NSBundle mainBundle] localizedStringForKey:(key) value:@"" table:nil]):([[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"en" ofType:@"lproj"]] localizedStringForKey:key value:@"" table:nil]))
+
+#endif
