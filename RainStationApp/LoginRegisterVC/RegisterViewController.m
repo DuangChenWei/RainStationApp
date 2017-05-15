@@ -84,7 +84,7 @@
 
     agreeMentBtn.titleLabel.font=[UIFont systemFontOfSize:widthOn(26)];
     agreeMentBtn.titleLabel.textAlignment=NSTextAlignmentCenter;
-    [self.view addSubview:agreeMentBtn];
+//    [self.view addSubview:agreeMentBtn];
     agreeMentBtn.sd_layout.topSpaceToView(registerBtn, widthOn(20)).centerXEqualToView(registerBtn).widthRatioToView(registerBtn, 1.5).heightIs(widthOn(60));
     
     UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backKeyBoard)];

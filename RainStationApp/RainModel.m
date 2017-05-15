@@ -17,7 +17,10 @@
     }
     return self;
 }
+-(void)setValue:(id)value forUndefinedKey:(NSString *)key{
 
+    
+}
 -(void)setMessageWithDic:(NSDictionary *)dic{
 
     self.BZName=dic[@"DevName"][@"text"];

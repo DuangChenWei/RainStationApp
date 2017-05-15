@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface AllRainAreaController : BaseViewController
-
+@property(nonatomic,strong)NSMutableArray *valueArray;
 @end

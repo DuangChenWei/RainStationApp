@@ -18,7 +18,7 @@
     
     NSMutableArray *colorArray;
 }
-@property(nonatomic,strong)NSMutableArray *valueArray;
+
 @property(nonatomic,strong)UILabel *topLabel;
 @end
 
@@ -27,6 +27,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initMainTitleBar:@"开发区降雨监测"];
+    
+    UIButton *bac=[UIButton buttonWithType:UIButtonTypeCustom];
+    bac.frame=self.backBtn.bounds;
+    [self.backBtn addSubview:bac];
+    [bac addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+    
     self.topLabel = [[UILabel alloc] initWithFrame:CGRectMake(widthOn(0), appNavigationBarHeight, k_ScreenWidth, widthOn(50))];
     
     [self.topLabel setTextColor:[UIColor grayColor]];
@@ -34,7 +40,7 @@
     self.topLabel.font=[UIFont systemFontOfSize:widthOn(24)];
     [self.view addSubview:self.topLabel];
     
-    self.valueArray=[NSMutableArray array];
+    
     
     // Do any additional setup after loading the view.
     column = [[JHColumnChart alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.topLabel.frame), k_ScreenWidth-widthOn(130), k_ScreenHeight-CGRectGetMaxY(self.topLabel.frame))];
@@ -78,12 +84,22 @@
         [self initViewsWithFrame:CGRectMake(CGRectGetMaxX(column.frame)+widthOn(10), CGRectGetMinY(column.frame)+widthOn(30)*i+widthOn(60), k_ScreenWidth-CGRectGetMaxX(column.frame)-widthOn(10), widthOn(20)) backgroundColor:colorArray[i] title:textArr[i]];
     }
     
+    if (self.valueArray.count>0) {
+        [self showColumnView];
+    }else{
     
+        self.valueArray=[NSMutableArray array];
+        [self getRainMessage];
+    }
     
-    [self getRainMessage];
+   
     
 
     // Do any additional setup after loading the view.
+}
+-(void)backAction{
+
+    [self.navigationController popViewControllerAnimated:NO];
 }
 -(void)initViewsWithFrame:(CGRect)rect backgroundColor:(UIColor *)backgroundColor title:(NSString *)title{
     
