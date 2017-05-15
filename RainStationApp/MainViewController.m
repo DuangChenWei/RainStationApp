@@ -12,6 +12,7 @@
 #import <ArcGIS/ArcGIS.h>
 #import "AllRainAreaController.h"
 #import "RainModel.h"
+#import "RainColumnViewController.h"
 @interface MainViewController ()<AGSMapViewLayerDelegate,AGSQueryTaskDelegate,AGSMapViewTouchDelegate,AGSQueryTaskDelegate>
 {
 
@@ -88,21 +89,43 @@
     
     
     btnSelect = [[UIButton alloc] initWithFrame:CGRectMake(screenWidth - btnWidth - btnPaddingRight, baseY, btnWidth, btnWidth)];
-    [btnSelect setBackgroundImage:[UIImage imageNamed:@"selectMap.png"] forState:UIControlStateNormal];
+    [btnSelect setImage:[UIImage imageNamed:@"selectMap.png"] forState:UIControlStateNormal];
+
+    [btnSelect setImage:[UIImage imageNamed:@"selectMap_select.png"] forState:UIControlStateSelected];
+
     [btnSelect addTarget:self action:@selector(onClickSelectPoint) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnSelect];
     
     btnColumn = [[UIButton alloc] initWithFrame:CGRectMake(btnSelect.frame.origin.x, btnSelect.frame.origin.y + btnSelect.frame.size.height + btnPaddingRight, btnWidth, btnWidth)];
-    [btnColumn setBackgroundImage:[UIImage imageNamed:@"mapColumn.png"] forState:UIControlStateNormal];
+    [btnColumn setImage:[UIImage imageNamed:@"mapColumn.png"] forState:UIControlStateNormal];
     [self.view addSubview:btnColumn];
     
     [btnColumn addTarget:self action:@selector(onClickColumn) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton *refreshBtn = [[UIButton alloc] initWithFrame:CGRectMake(btnSelect.frame.origin.x, btnColumn.frame.origin.y + btnColumn.frame.size.height + btnPaddingRight, btnWidth, btnWidth)];
+    [refreshBtn setImage:[UIImage imageNamed:@"refreshIcon.png"] forState:UIControlStateNormal];
+    [self.view addSubview:refreshBtn];
+    
+    [refreshBtn addTarget:self action:@selector(getRainMessage) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIImageView *biaozhuImv=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"水位-标注-.png"]];
+    biaozhuImv.frame=CGRectMake(k_ScreenWidth-widthOn(88)-btnPaddingRight, CGRectGetMaxY(refreshBtn.frame)+btnPaddingRight, widthOn(88), widthOn(516));
+    [self.view addSubview:biaozhuImv];
+    
+    
     
     
 }
 -(void)onClickSelectPoint{
 
     isOpenTapMap=!isOpenTapMap;
+   
+    btnSelect.selected=!btnSelect.selected;
+    NSString *messageStr=@"点击查询开启";
+    if (!isOpenTapMap) {
+        messageStr=@"点击查询关闭";
+    }
+    [[NetWorkManager sharedInstance] showExceptionMessageWithString:messageStr];
 }
 -(void)onClickColumn{
  
@@ -123,6 +146,7 @@
             AGSGraphic *grappp=arr[0];
              NSLog(@"点击了点击了%@,,,%@",[grappp allAttributes][@"DocPath"],[grappp allAttributes][@"RefName"]);
 
+            [self get24hourRainMessageWithId:[grappp allAttributes][@"DocPath"] name:[grappp allAttributes][@"RefName"]];
         }
         
     }else{
@@ -144,6 +168,7 @@
     NSURL *urlBengzhan= [NSURL URLWithString:@"http://ysmapservices.sytxmap.com/arcgis/rest/services/KFQ_YuLiangJianCe/MapServer"];
     AGSDynamicMapServiceLayer *  layerBengzhan111 = [AGSDynamicMapServiceLayer dynamicMapServiceLayerWithURL:urlBengzhan];
 
+   
     layerBengzhan111.name = @"dynamicLayer";
 
     //    [self reFreshMapLayer];
@@ -165,7 +190,6 @@
     self.query.returnGeometry = YES;
     
     self.query.whereClause=@"1=1";
-//    self.query.text = @"Ring0";
     
     [self.queryTask executeWithQuery:self.query];
     
@@ -179,11 +203,15 @@
     
    [self.mapView zoomToEnvelope:fullEnv animated:YES];
     
-    [SVProgressHUD dismiss];
+    
   
     isLoadMap=YES;
     if (isLoadQueryTask) {
+        [SVProgressHUD dismiss];
         [self getRainMessage];
+    }else{
+    
+        
     }
     
 }
@@ -214,6 +242,7 @@
         }
       
         if (isLoadMap) {
+            [SVProgressHUD dismiss];
             [self getRainMessage];
         }
         
@@ -226,10 +255,13 @@
 -(void)queryTask: (AGSQueryTask*)queryTask operation:(NSOperation*)op didFailWithError:(NSError*)error{
 
     NSLog(@"querytask查询失败");
+    [SVProgressHUD dismiss];
     
 }
 -(void)addRainLayers{
 
+    [self.graphicsLayer removeAllGraphics];
+    
     for (NSDictionary *dic in self.mapArray) {
         
         NSString *name=dic[@"layerName"];
@@ -290,13 +322,97 @@
     }];
     
 }
+
+-(void)get24hourRainMessageWithId:(NSString *)r_id name:(NSString *)r_name{
+
+    [SVProgressHUD showWithStatus:@"正在加载..."];
+    [self onClickSelectPoint];
+    NSString *urlStr=@"Get_OneAdEveryHourRain_List";
+    NSDictionary *bodyDic=[NSDictionary dictionaryWithObject:r_id forKey:@"ID"];
+    [[NetWorkManager sharedInstance] GetDictionaryMethodWithUrl:urlStr parameters:bodyDic success:^(NSDictionary *response) {
+      
+        [SVProgressHUD dismiss];
+          NSLog(@"%@",response);
+        id respon=response
+        [@"RainFallInfo"];
+        
+        
+        NSDateFormatter *dateFormatter007 = [[NSDateFormatter alloc] init];
+        dateFormatter007.dateFormat = @"HH";
+        NSString *nowHour=[dateFormatter007 stringFromDate:[NSDate date]];
+        NSLog(@"65464::%@",nowHour);
+        dateFormatter007.dateFormat=@"MM月dd日";
+        NSLog(@"++++++++::%@",[dateFormatter007 stringFromDate:[NSDate date]]);
+        
+        NSMutableArray *array24=[NSMutableArray array];
+        
+        if ([respon isKindOfClass:[NSArray class]]) {
+            for (NSDictionary *carDic in respon) {
+                NSMutableDictionary *dic=[NSMutableDictionary dictionary];
+                
+                NSString *hhStr=carDic[@"HH"][@"text"];
+                
+                
+                NSString *timeHHStr=@"";
+                
+                if ([hhStr intValue]<[nowHour intValue]) {
+                    timeHHStr=[dateFormatter007 stringFromDate:[NSDate date]];
+                }else{
+                    timeHHStr=[dateFormatter007 stringFromDate:[NSDate dateWithTimeIntervalSinceNow:-(24*60*60)]];
+                }
+                
+                [dic setValue:[NSString stringWithFormat:@"%@ %@时",timeHHStr,carDic[@"HH"][@"text"]] forKey:@"HH"];
+                if ([carDic[@"HH"][@"text"] intValue]<10) {
+                    [dic setValue:[NSString stringWithFormat:@"%@ 0%@时",timeHHStr,carDic[@"HH"][@"text"]] forKey:@"HH"];
+                }
+               
+                float valu=[carDic[@"ValueX"][@"text"] doubleValue];
+                [dic setValue:[NSString stringWithFormat:@"%.1f",valu] forKey:@"ValueX"];
+                
+                [array24 addObject:dic];
+            }
+            
+        }else if([respon isKindOfClass:[NSDictionary class]]){
+            NSMutableDictionary *dic=[NSMutableDictionary dictionary];
+            [dic setValue:respon[@"HH"][@"text"] forKey:@"HH"];
+            float valu=[respon[@"ValueX"][@"text"] doubleValue];
+            [dic setValue:[NSString stringWithFormat:@"%.1f",valu] forKey:@"ValueX"];
+            [array24 addObject:dic];
+            
+        }else{
+            
+        }
+        
+        if (array24.count<1) {
+            [[NetWorkManager sharedInstance] showExceptionMessageWithString:@"暂无降雨量数据"];
+        }else{
+            
+            RainColumnViewController *mv=[[RainColumnViewController alloc] init];
+            mv.isFrom24hours=YES;
+            mv.dateArray=array24;
+            mv.name=r_name;
+            [self.navigationController pushViewController:mv animated:YES];
+            
+        }
+
+        
+       
+        
+        
+    } failure:^(NSError *error) {
+        [SVProgressHUD dismiss];
+        [[NetWorkManager sharedInstance] showExceptionMessageWithString:@"获取雨量信息失败，请检查网络后重试"];
+        
+    }];
+}
+
 -(void)showColumnViewWithDic:(NSDictionary *)response{
     
     id respon=response
     [@"RainFall"];
     
-    [self.graphicsLayer removeAllGraphics];
-    
+    [self.valueArray removeAllObjects];
+  
     if ([respon isKindOfClass:[NSArray class]]) {
         for (NSDictionary *dic in respon) {
             RainModel *model=[[RainModel alloc] init];
@@ -393,9 +509,12 @@
     }else if ([value floatValue]>= 1){
         
         return colorArray[15];
-    }else if ([value floatValue]>= 0){
+    }else if ([value floatValue]> 0){
         
         return colorArray[16];
+    }else if ([value floatValue]== 0){
+        
+        return [UIColor clearColor];
     }else{
         return colorArray[0];
     }

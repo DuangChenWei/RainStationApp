@@ -100,8 +100,9 @@
     
     UIImageView *image=[[UIImageView alloc] init];
     image.frame=CGRectMake(widthOn(30), 34, 16, 16);
-    image.image = [[UIImage imageNamed:@"backicon.png"] imageWithRenderingMode:(UIImageRenderingModeAlwaysTemplate)];
-    [image setTintColor:appMainColor];
+//    image.image = [[UIImage imageNamed:@"backicon.png"] imageWithRenderingMode:(UIImageRenderingModeAlwaysTemplate)];
+//    [image setTintColor:appMainColor];
+    image.image=[UIImage imageNamed:@"MainBackIcon.png"];
     [self.backBtn addSubview:image];
     
     

@@ -164,7 +164,7 @@ static NetWorkManager* g_shareInstance = nil;
 -(void)checkAppVersionNeedUpdate{
 
     NSString *localVersion=[[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];//Version
-    NSString *URLStr=@"https://itunes.apple.com/cn/lookup?id=1216518823";
+    NSString *URLStr=@"https://itunes.apple.com/cn/lookup?id=1236615944";
     AFHTTPSessionManager *manager=[AFHTTPSessionManager manager];
     NSLog(@"请求APP更新接口");
     [manager GET:URLStr parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -191,7 +191,7 @@ static NetWorkManager* g_shareInstance = nil;
                 [[NSUserDefaults standardUserDefaults] setObject:url forKey:@"updateUrl"];
                 [[NSUserDefaults standardUserDefaults] synchronize];
                 
-                UIAlertView *art2=[[UIAlertView alloc] initWithTitle: MYLocalizedString(@"智慧城管app发现新的版本需要升级", nil) message:nil delegate:self cancelButtonTitle:@"现在升级" otherButtonTitles:nil, nil];
+                UIAlertView *art2=[[UIAlertView alloc] initWithTitle: MYLocalizedString(@"雨量监测系统发现新的版本需要升级", nil) message:nil delegate:self cancelButtonTitle:@"现在升级" otherButtonTitles:nil, nil];
                 art2.tag=205;
                 [art2 show];
            

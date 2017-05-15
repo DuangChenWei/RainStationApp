@@ -14,7 +14,7 @@
     JHColumnChart *column;
     NSMutableArray *colorArray;
 }
-@property(nonatomic,strong)NSMutableArray *dateArray;
+
 @end
 
 @implementation RainColumnViewController
@@ -27,12 +27,19 @@
     NSLog(@"%@",self.bengZhanID);
     
     
-    self.dateArray=[NSMutableArray array];
+    
+    if (self.dateArray==nil) {
+        self.dateArray=[NSMutableArray array];
+    }
+    
     
     
     column = [[JHColumnChart alloc] initWithFrame:CGRectMake(0, appNavigationBarHeight, k_ScreenWidth-widthOn(130), k_ScreenHeight-appNavigationBarHeight)];
     
     column.originSize = CGPointMake(widthOn(180), widthOn(60));
+    if (self.isFrom24hours) {
+        column.originSize = CGPointMake(widthOn(200), widthOn(60));
+    }
     column.drawFromOriginX = 0;
     column.typeSpace = widthOn(20);
     column.isShowXLine = YES;
@@ -77,13 +84,17 @@
     
    
 
-    
-    
-    if (self.bengZhanID) {
-        [self getDataFromNet];
+    if (self.dateArray.count>0) {
+        [self showColumnView];
     }else{
-        [self getAllDataFromNet];
+        if (self.bengZhanID) {
+            [self getDataFromNet];
+        }else{
+            [self getAllDataFromNet];
+        }
     }
+    
+    
     // Do any additional setup after loading the view.
 }
 
@@ -123,11 +134,22 @@
     
     for (NSMutableDictionary *dic in self.dateArray) {
         
-        if ([dic[@"ValueX"] intValue]>0) {
+        if (self.isFrom24hours || [dic[@"ValueX"] floatValue]>0) {
             [valueArr addObject:[NSArray arrayWithObject:dic[@"ValueX"]]];
             [xShowInfoText addObject:dic[@"HH"]];
-            
         }
+//        else{
+//            if ([dic[@"ValueX"] floatValue]>0) {
+//                [valueArr addObject:[NSArray arrayWithObject:dic[@"ValueX"]]];
+//                [xShowInfoText addObject:dic[@"HH"]];
+//                
+//            }
+//        }
+        
+        
+        
+       
+        
         
         
         

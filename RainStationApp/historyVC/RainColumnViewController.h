@@ -13,5 +13,6 @@
 @property(nonatomic,copy)NSString *startTime;
 @property(nonatomic,copy)NSString *endTime;
 @property(nonatomic,copy)NSString *bengZhanID;
-
+@property(nonatomic,strong)NSMutableArray *dateArray;
+@property(nonatomic,assign)BOOL isFrom24hours;
 @end

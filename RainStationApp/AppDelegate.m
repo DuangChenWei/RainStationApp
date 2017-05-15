@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ExceptionLabel.h"
+#import "NetWorkManager.h"
 @interface AppDelegate ()
 {
 
@@ -22,7 +23,7 @@
     // Override point for customization after application launch.
     exceptionLabel = [[ExceptionLabel alloc] init];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(exceptionMessage:) name:@"exceptionMessage" object:nil];
-    
+    [[NetWorkManager sharedInstance] checkAppVersionNeedUpdate];
     return YES;
 }
 

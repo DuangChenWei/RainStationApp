@@ -706,6 +706,20 @@
                     </s:sequence>
                 </s:complexType>
             </s:element>
+            <s:element name="Get_OneAdEveryHourRain_List">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Get_OneAdEveryHourRain_ListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Get_OneAdEveryHourRain_ListResult" type="tns:ArrayOfRainFallInfo"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
             <s:element name="Get_EveryDevRainfallHH_List">
                 <s:complexType>
                     <s:sequence>
@@ -1344,6 +1358,12 @@
     <wsdl:message name="Get_RealTimeRainfall_ListSoapOut">
         <wsdl:part name="parameters" element="tns:Get_RealTimeRainfall_ListResponse"/>
     </wsdl:message>
+    <wsdl:message name="Get_OneAdEveryHourRain_ListSoapIn">
+        <wsdl:part name="parameters" element="tns:Get_OneAdEveryHourRain_List"/>
+    </wsdl:message>
+    <wsdl:message name="Get_OneAdEveryHourRain_ListSoapOut">
+        <wsdl:part name="parameters" element="tns:Get_OneAdEveryHourRain_ListResponse"/>
+    </wsdl:message>
     <wsdl:message name="Get_EveryDevRainfallHH_ListSoapIn">
         <wsdl:part name="parameters" element="tns:Get_EveryDevRainfallHH_List"/>
     </wsdl:message>
@@ -1634,6 +1654,10 @@
         <wsdl:operation name="Get_RealTimeRainfall_List">
             <wsdl:input message="tns:Get_RealTimeRainfall_ListSoapIn"/>
             <wsdl:output message="tns:Get_RealTimeRainfall_ListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Get_OneAdEveryHourRain_List">
+            <wsdl:input message="tns:Get_OneAdEveryHourRain_ListSoapIn"/>
+            <wsdl:output message="tns:Get_OneAdEveryHourRain_ListSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="Get_EveryDevRainfallHH_List">
             <wsdl:input message="tns:Get_EveryDevRainfallHH_ListSoapIn"/>
@@ -2046,6 +2070,15 @@
         </wsdl:operation>
         <wsdl:operation name="Get_RealTimeRainfall_List">
             <soap:operation soapAction="http://tempuri.org/Get_RealTimeRainfall_List" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_OneAdEveryHourRain_List">
+            <soap:operation soapAction="http://tempuri.org/Get_OneAdEveryHourRain_List" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -2589,6 +2622,15 @@
         </wsdl:operation>
         <wsdl:operation name="Get_RealTimeRainfall_List">
             <soap12:operation soapAction="http://tempuri.org/Get_RealTimeRainfall_List" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Get_OneAdEveryHourRain_List">
+            <soap12:operation soapAction="http://tempuri.org/Get_OneAdEveryHourRain_List" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
