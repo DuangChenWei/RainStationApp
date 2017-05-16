@@ -136,6 +136,7 @@
 }
 - (void)mapView:(AGSMapView *)mapView didClickAtPoint:(CGPoint)screen mapPoint:(AGSPoint *)mappoint graphics:(NSDictionary *)graphics{
     
+    NSLog(@"%@",mappoint);
     if (isOpenTapMap) {
     
  
@@ -165,7 +166,7 @@
 {
     [SVProgressHUD showWithStatus:@"正在加载地图"];
     
-    NSURL *urlBengzhan= [NSURL URLWithString:@"http://ysmapservices.sytxmap.com/arcgis/rest/services/KFQ_YuLiangJianCe/MapServer"];
+    NSURL *urlBengzhan= [NSURL URLWithString:@"http://ysmapservices.sytxmap.com/arcgis/rest/services/New/SJ_YuLiangJianCe/MapServer"];
     AGSDynamicMapServiceLayer *  layerBengzhan111 = [AGSDynamicMapServiceLayer dynamicMapServiceLayerWithURL:urlBengzhan];
 
    
@@ -178,7 +179,7 @@
     [self.mapView addMapLayer:self.graphicsLayer withName:@"grapLayer"];
     
     
-    self.queryTask = [AGSQueryTask queryTaskWithURL:[NSURL URLWithString:@"http://ysmapservices.sytxmap.com/arcgis/rest/services/KFQ_YuLiangJianCe/MapServer/0"]];
+    self.queryTask = [AGSQueryTask queryTaskWithURL:[NSURL URLWithString:@"http://ysmapservices.sytxmap.com/arcgis/rest/services/New/SJ_YuLiangJianCe/MapServer/0"]];
     
     self.queryTask.delegate = self;
                       //return all fields in query
@@ -199,7 +200,7 @@
 }
 
 -(void) mapViewDidLoad:(AGSMapView *)mapView{
-    AGSEnvelope *fullEnv = [[AGSEnvelope alloc] initWithXmin:41489475.648039 ymin:4629936.377077 xmax:41527078.378675 ymax:4595382.516492 spatialReference:[[AGSSpatialReference alloc] initWithWKID:2365 WKT:nil]];//
+    AGSEnvelope *fullEnv = [[AGSEnvelope alloc] initWithXmin:41490192.410579 ymin:4641250.382036 xmax:41530592.051305 ymax:4575841.439908 spatialReference:[[AGSSpatialReference alloc] initWithWKID:2365 WKT:nil]];//
     
    [self.mapView zoomToEnvelope:fullEnv animated:YES];
     
@@ -514,7 +515,7 @@
         return colorArray[16];
     }else if ([value floatValue]== 0){
         
-        return [UIColor clearColor];
+        return [UIColor whiteColor];
     }else{
         return colorArray[0];
     }
